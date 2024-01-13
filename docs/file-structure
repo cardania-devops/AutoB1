@@ -1,0 +1,47 @@
+# AI Autoblogger Plugin File Structure
+
+This document outlines the file structure for the AI Autoblogger WordPress plugin.
+
+## Root Directory
+
+- `ai-autoblogger.php`: The main plugin file which initializes the plugin.
+
+## Includes
+
+- `class-ai-autoblogger.php`: Main class file for the plugin's functionality.
+- `class-openai-api.php`: Handles integration with the OpenAI API.
+- ...
+
+## Admin
+
+- `class-ai-autoblogger-admin.php`: Manages admin-specific functionality.
+- `views/`: Contains admin view templates.
+
+## Assets
+
+- `css/`: CSS files for styling.
+- `js/`: JavaScript files for interactive functionality.
+
+## Templates
+
+- `custom-post-type-template.php`: Template for custom post types.
+
+## Languages
+
+- Localization files for the plugin.
+
+## Docs
+
+- Documentation files including user guides and developer information.
+
+## Tests
+
+- `tests.php`: Unit tests for the plugin.
+
+## Vendor
+
+- External libraries used by the plugin.
+
+## Readme
+
+- `readme.txt`: Basic plugin information and instructions.

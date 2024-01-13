@@ -1,0 +1,43 @@
+<?php
+// Check user capabilities
+if (!current_user_can('manage_options')) {
+    return;
+}
+
+// Fetch saved options
+$options = get_option('ai_autoblogger_options');
+?>
+<div class="wrap">
+    <h1><?= esc_html(get_admin_page_title()); ?></h1>
+    <form action="options.php" method="post">
+        <?php
+        settings_fields('ai-autoblogger');
+        do_settings_sections('ai-autoblogger');
+
+        // Add your fields here
+        ?>
+        <h2>General Settings</h2>
+        <table class="form-table">
+            <tr>
+                <th scope="row"><label for="ai_autoblogger_api_key">OpenAI API Key</label></th>
+                <td>
+                    <input type="text" id="ai_autoblogger_api_key" name="ai_autoblogger_options[api_key]" value="<?php echo esc_attr($options['api_key'] ?? ''); ?>" class="regular-text">
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><label for="ai_autoblogger_post_frequency">Post Frequency</label></th>
+                <td>
+                    <select id="ai_autoblogger_post_frequency" name="ai_autoblogger_options[post_frequency]">
+                        <option value="30min" <?php selected($options['post_frequency'], '30min'); ?>>Every 30 minutes</option>
+                        <option value="1hour" <?php selected($options['post_frequency'], '1hour'); ?>>Every hour</option>
+                        <option value="3hours" <?php selected($options['post_frequency'], '3hours'); ?>>Every 3 hours</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </td>
+            </tr>
+            <!-- Add more settings fields as needed -->
+        </table>
+        
+        <?php submit_button('Save Settings'); ?>
+    </form>
+</div>
